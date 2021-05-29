@@ -15,6 +15,6 @@ A simple library of functions for this program might be:
 By running the sequence over the library, a program is created ( in [neodna](https://github.com/adamlater/neodna) this is a canteroll, which has .canter format ).
 
 ## The canteroll ( .canter )
-The canteroll is as long as the original sequence, and can be used to represent the original sequence graphically. Important features are that it does not contain the original sequence and can be difficult to reverse without the underlying library which helped create it. By running a DNA sequence over a library of functions, small sequences can create very large programs which create complex images, and **character**.
+The canteroll can be used to represent the original sequence graphically. Important features are that it does not contain the original sequence and can be difficult to reverse without the underlying library which helped create it. By running a DNA sequence over a library of functions, small sequences can create very large programs which create complex images, and **character**.
 
 This program will allow you to view a single .canter file in slow-motion as it runs through it's sequence.
