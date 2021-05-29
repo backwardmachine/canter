@@ -1,0 +1,77 @@
+body
+{
+  background: #666678;
+}
+
+#canter__grid__outer
+{
+  width:auto;
+  text-align:center;
+  padding:20px;
+}
+
+#canter__grid
+{
+  display:grid;
+  grid-template-columns: 1fr 400px 1fr;
+}
+
+#canter__satelyte,
+#canter__haidentot__0
+{
+  display:inline-block;
+  text-align:left;
+  font-size:0px;
+}
+
+#canter__canteroll__outer
+{
+  display:inline-block;
+  text-align:left;
+  vertical-align:top;
+  padding:5px;
+}
+
+#canter__canteroll
+{
+  display:block;
+  text-align:left;
+  vertical-align:top;
+  font-size:0px;
+}
+
+#canter__canteroll__import__outer
+{
+  display:block;
+  left:0;
+  text-align:left;
+}
+
+#canter__canteroll__import
+{
+  display:inline-block;
+  font-size:18px;
+  padding:5px;
+  border:1px solid #333;
+  background:#999;
+}
+
+#canter__canteroll__forward {
+	display:inline-block;
+	margin-left:5px;
+  margin-top:5px;
+	width:96px;
+	height:98px;
+	background: url( "canter__rightarrow__plain.png" );
+  border:5px solid #82828f;
+}
+
+#canter__canteroll__forward:hover {
+	cursor:pointer;
+	/*background: url( "canter__rightarrow__hover.png" );*/
+  border:5px solid #90909c;
+}
+
+#canter__canteroll__import__file {
+  display:none;
+}

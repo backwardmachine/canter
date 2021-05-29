@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Canter</title>
+<script src="js/Animation.js"></script>
+<script src="js/Block.js"></script>
+<script src="js/Caoi.js"></script>
+<script src="js/Canvas.js"></script>
+<script src="js/Codex.js"></script>
+<script src="js/Flags.js"></script>
+<script src="js/Functions.js"></script>
+<script src="js/Gate.js"></script>
+<script src="js/Haidentot.js"></script>
+<script src="js/Mouse.js"></script>
+<script src="js/Packet.js"></script>
+<script src="js/Picture.js"></script>
+<script src="js/Rack.js"></script>
+<script src="js/Sequence.js"></script>
+<script src="js/Stack.js"></script>
+<script src="js/Skittle.js"></script>
+<script src="js/Skutterer.js"></script>
+<script src="js/Tail.js"></script>
+<script src="js/__init/__init__mouse.js"></script>
+<script src="js/__init/__init__stack.js"></script>
+<script src="js/__init/__init__stack__canvas.js"></script>
+<script src="canter.js"></script>
+<link rel="stylesheet" type="text/css" href="style/canter.css">
+</head>
+<body>
+
+<div id="canter__grid__outer">
+  <div id="canter__grid">
+    <div></div>
+    <div id="canter__haidentot__0">
+      <canvas id="canter__haidentot__0__canvas"></canvas>
+    </div>
+    <div id="canter__canteroll__outer">
+      <div id="canter__canteroll">
+        <canvas id="canter__canteroll__canvas"></canvas>
+      </div>
+      <div id="canter__canteroll__tools">
+        <div id="canter__canteroll__import__outer">
+          <div id="canter__canteroll__import">import .canter</div>
+        </div>
+        <div id="canter__canteroll__forward__outer">
+          <div id="canter__canteroll__forward"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<input type="file" id="canter__canteroll__import__file">
+
+<script language="javascript">
+
+  var __CANTER__WORDLENGTH = 8;
+  var library = __canteroll__load__codes();
+
+  var __cfg = {
+    prefix: "canter",
+    text: {
+      profiles: [
+      {
+        on: 1,
+        font: '22px georgia',
+        left: 3,
+        top: -4
+      },
+      {
+        on: 1,
+        font: '10px georgia',
+        left: 0,
+        top: 0
+      },
+      ]
+    }
+  };
+
+  var wordlength = __CANTER__WORDLENGTH;
+  var wordvisible = 10;
+
+  var cfg = {
+    leading	 		: 0,
+    trailing 		: 0,
+    width		 		: wordlength,
+    length	 		: wordlength * wordvisible,
+    nest		 		: "canter__canteroll__canvas",
+    container   : "canter__canteroll",
+    caoi		 		: __canteroll__caoi,
+    pixels	 		: { x: 20, y: 25 },
+    visible  		: wordlength * wordvisible,
+    text        : __cfg.text.profiles[ 0 ]
+  };
+
+  var stack = __init__stack( __canteroll__base( cfg.visible ), cfg );
+  stack.canvas.__cfg.text = cfg.text;
+  stack.words( wordlength );
+  stack.update();
+  stack.draw( 1 );
+  __canteroll__load__codes( stack );
+
+  var size = {
+    x: 100, y: 100
+  };
+
+  var __cfg = {
+    leading	 		: 0,
+    trailing 		: 0,
+    width		 		: size.x,
+    height      : size.y,
+    length	 		: size.x * size.y,
+    nest		 		: "canter__haidentot__0__canvas",
+    container   : "canter__haidentot__0",
+    caoi		 		: caoi__binary__clean,
+    pixels	 		: { x: 4, y: 4 },
+    visible  		: size.x * size.y
+  };
+
+  var haidentot = new neodna__Haidentot( 0, __cfg );
+  haidentot.ox = 50;
+  haidentot.oy = 50;
+  haidentot.init();
+
+  document.getElementById( "canter__canteroll__forward" )
+    .addEventListener( "click", __canteroll__forward );
+  document.getElementById( "canter__canteroll__import" )
+    .addEventListener( "click", __canteroll__import );
+  document.getElementById( "canter__canteroll__import__file" )
+    .addEventListener( "change", __canteroll__import__file );
+
+  __canteroll__import__text(
+    `1,1,5,5,5,0,0,0,2,0,5,5,0,7,1,0,7,7,7,1,1,5,1,0,5,5,0,0,0,7,0,7,0,1,5,
+    0,0,1,0,0,5,0,0,2,5,0,1,1,5,2,2,5,2,0,1,2,2,0,0,1,5,5,2,2,5,2,0,0,1,1,
+    2,0,5,0,1,5,2,2,0,2,2,2,2,2,5,2,0,5,0,5,5,2,0,5,1,5,5,0,0,0,0,0,0,0,0,
+    5,5,1,1,1,1,5,5,5,2,2,5,0,0,0,5,1,1,1,1,5,1,5,5,1,1,1,5,5,5,1,1,1,1,1,
+    1,1,1,1,1,1,7,1,1,5,5,0,0,2,2,5,5,1,1,1,1,5,5,5,0,5,5,1,5,2,5,5,1,1,1,
+    1,1,7,1,1,1,5,1,2,5,0,5,1,5,0,0,5,5,1,1,5,5,0,0,0,2,5,5,1,2,0,5,0,0,1,
+    0,0,5,1,5,1,1,1,1,5,5,0,1,5,1,1,1,1,2,1,5,0,2,0,0,5,1,5,1,5,0,1,5,7,1,
+    5,5,1,5,1,7,1,1,7,0,1,7,1,1,1,1,5,1,5,0,5,1,0,0,5,1,1,2,1,5,0,0,0,0,5,
+    5,1,1,0,5,5,1,1,1,1,1,1,1,1,0,5,5,1,5,1,7,1,5,5,5,5,5,5,5,2,1,2,5,2,5,
+    1,1,7,0,0,5,1,5,2,5,1,1,7,7,7,5,1,0,5,5,1,1,7,1,1,5,0,1,5,0,5,5,5,5,1,
+    5,1,2,5,5,1,7,7,7,5,1,0,5,5,1,1,7,1,1,5,0,1,5,1,5,5,5,5,1,5,1,2,5,0,5,
+    5,2,1,5,5,7,7,1,1,1,1,1,1,7,5,5,0,1,5,5,5,5,7,0,1,1,5,2,5,0,5,1,1,7,0,
+    1,1,5,2,2,2,1,5,5,7,1,0,5,5,1,5,1,5,5,2,0,0,0,0,0,2,0,0,5,5,0,1,1,0,5,
+    5,7,5,5,5,1,7,1,1,1,1,1,0,5,1,5,0,1,0,5,1,1,7,1,1,1,1,7,1,7,0,1,0,5,5,
+    5,1,5,5,5,1,7,7,1,1,0,1,1,5,5,5,0,0,1,1,5,1` );
+
+</script>
+</body>
+</html>
